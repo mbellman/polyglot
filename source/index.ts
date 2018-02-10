@@ -3,6 +3,7 @@
 import assert from './assert';
 import Logger from './Logger';
 import tokenize from './tokenizer/tokenize';
+import parse from './parser/parse';
 import { Directory, getFileContents } from './file';
 import { getFileExtension } from './helpers';
 import { getFlags, IFlags, Flag } from './flags';
