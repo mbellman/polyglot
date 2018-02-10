@@ -18,7 +18,7 @@ function getRegexFromTemplate (template: string): RegExp {
   // Return a valid RegExp instance/pattern from a template string
 }
 
-function createSyntaxKeywords (matches: string[], template: string): ITemplateKeywords {
+function createTemplateKeywords (matches: string[], template: string): ITemplateKeywords {
   return null;
 
   // TODO:
@@ -58,7 +58,7 @@ export function matchPattern (line: string, patternDictionary: IPatternDictionar
     const matches: string[] = line.match(regex);
 
     if (matches) {
-      return createSyntaxKeywords(matches, template);
+      return createTemplateKeywords(matches, template);
     }
   }
 }
