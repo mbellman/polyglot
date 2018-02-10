@@ -2,13 +2,13 @@
 	"name": "polyglot",
 	"scripts": {
 		"setup": "yarn install && npm link",
-		"build": "tsc"
+		"build": "rm -f -r build/* && tsc"
 	},
 	"devDependencies": {
 		"@types/core-js": "^0.9.42",
 		"@types/node": "^9.4.4",
 		"ts-loader": "^2.3.3",
-		"typescript": "next"
+		"typescript": "^2.7.1"
 	},
 	"bin": {
 		"pg": "./build/index.js"

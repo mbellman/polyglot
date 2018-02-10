@@ -3,3 +3,4 @@ build/
 *.log
 *.lock
 package-lock.json
+out/*

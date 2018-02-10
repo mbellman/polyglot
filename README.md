@@ -3,5 +3,10 @@ A programming language conversion tool.
 
 **Usage:**
 
-`pg -t [path/to/template].json -f [path/to/file].[ext]`  
-`pg -t py-js.json -f python/test.py`
+Format: `pg -f [path/to/file] -o [language extension]`  
+Example: `pg -f test.c -o js`
+
+**Installation (development):**
+
+Installation: `yarn setup`  
+To rebuild: `yarn build`  

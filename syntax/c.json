@@ -1,0 +1,11 @@
+{
+  "block": {
+    "open": "{",
+    "close": "}"
+  },
+  "method": {
+    "open": "{type} {name} ({arguments[]}) [[block.open]]",
+    "close": "[[block.close]]"
+  },
+  "EOL": ";"
+}
