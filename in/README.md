@@ -1,0 +1,1 @@
+Here you can place files or folders containing files to use as targets for the `pg` command line arguments. Upon successful transpilation, the transpiled file will be copied into the `[root]/out/` folder in an equivalent location.
