@@ -12,6 +12,8 @@
     "window": true
   },
   "rules": {
-    "semi": "error"
+    "semi": "error",
+    "no-unused-vars": "off",
+    "no-console": "off"
   }
 }

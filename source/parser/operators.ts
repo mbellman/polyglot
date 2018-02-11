@@ -34,26 +34,3 @@ export namespace Operators {
     BITWISE_OR_ASSIGN
   }
 }
-
-export interface IPrimitive {
-  value: string | number | true | false;
-}
-
-export interface IReference {
-  name: string;
-}
-
-export interface IValue {
-  value: IPrimitive | IReference | ICondition;
-}
-
-export interface ICondition {
-  leftOperand: IValue | IMethodCall;
-  operator: Operators.Conditional;
-  rightOperand: IValue | IMethodCall;
-}
-
-export interface IMethodCall {
-  methodName: string;
-  arguments: (IValue | IMethodCall)[];
-}

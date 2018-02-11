@@ -1,0 +1,10 @@
+{
+  "typed": false,
+  "syntax": {
+    "block": {
+      "open": "{",
+      "close": "}"
+    },
+    "EOL": ";"
+  }
+}

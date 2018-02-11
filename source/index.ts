@@ -3,29 +3,33 @@
 import assert from './assert';
 import Logger from './Logger';
 import tokenize from './tokenizer/tokenize';
-import parse from './parser/parse';
 import { Directory, getFileContents } from './file';
 import { getFileExtension } from './helpers';
 import { getFlags, IFlags, Flag } from './flags';
-import { getSyntax, ISyntax } from './syntax';
+import { getGrammar, IGrammar } from './grammar';
 
 async function main (args: string[]): Promise<void> {
   Logger.start();
 
   const flags: IFlags = getFlags(args);
-  const fileName: string = flags[Flag.FILE_IN];
-  const fileContents: string = await getFileContents(Directory.INPUT, fileName);
+  const inputFilename: string = flags[Flag.FILE_IN];
+  const inputFileContents: string = await getFileContents(Directory.INPUT, inputFilename);
 
   assert(
-    typeof fileContents === 'string',
-    `${Directory.INPUT}/${fileName} is not a valid file.`
+    typeof inputFileContents === 'string',
+    `${Directory.INPUT}/${inputFilename} is not a valid file.`
   );
 
-  const extension: string = getFileExtension(fileName);
-  const syntaxIn: ISyntax = await getSyntax(extension);
-  const syntaxOut: ISyntax = await getSyntax(flags[Flag.LANGUAGE_OUT]);
+  const extension: string = getFileExtension(inputFilename);
+  const grammarIn: IGrammar = await getGrammar(extension);
+  const grammarOut: IGrammar = await getGrammar(flags[Flag.LANGUAGE_OUT]);
 
-  tokenize(fileContents, syntaxIn);
+  assert(
+    grammarOut.typed ? grammarIn.typed : true,
+    'You cannot transpile a non-typed language to a typed language.'
+  );
+
+  // parse(inputFileContents, grammarIn);
 
   Logger.finish();
 }

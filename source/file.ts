@@ -4,7 +4,7 @@ import { Handler } from './types';
 export enum Directory {
   INPUT = 'in',
   OUTPUT = 'out',
-  SYNTAX = 'syntax'
+  GRAMMAR = 'grammar'
 }
 
 export function getFileContents (directory: Directory, file: string): Promise<string | null> {
