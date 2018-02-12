@@ -1,18 +1,15 @@
 import assert from './assert';
 
-function areValidFlags (flags: IFlags): boolean {
+function validateFlags (flags: IFlags): void {
   for (const flagName of [
     Flag.FILE_IN,
     Flag.LANGUAGE_OUT
   ]) {
-    if (!flags[flagName as keyof IFlags]) {
-      console.warn(`Missing flag: -${flagName}`);
-
-      return false;
-    }
+    assert(
+      !!flags[flagName as keyof IFlags],
+      `Missing flag: -${flagName}`
+    );
   }
-
-  return true;
 }
 
 export const enum Flag {
@@ -40,7 +37,7 @@ export function getFlags (args: string[]): IFlags {
     i += isFlagNameArg ? 2 : 1;
   }
 
-  assert(areValidFlags(flags));
+  validateFlags(flags);
 
   return flags;
 }

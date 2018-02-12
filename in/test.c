@@ -1,8 +1,9 @@
 int main ()
 {
   int x = 5;
+  int *y = &x;
 
-  printf("Hello, world!");
+  printf("%d", *y);
 
   return 0;
 }

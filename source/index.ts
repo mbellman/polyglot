@@ -2,11 +2,12 @@
 
 import assert from './assert';
 import Logger from './Logger';
-import { tokenize, IToken } from './tokenizer/tokenize';
+import tokenize from './tokenizer/tokenize';
 import { Directory, getFileContents } from './file';
+import { Flag, getFlags, IFlags } from './flags';
 import { getFileExtension } from './helpers';
-import { getFlags, IFlags, Flag } from './flags';
 import { getGrammar, IGrammar } from './grammar';
+import { IToken } from './tokenizer/types';
 
 async function main (args: string[]): Promise<void> {
   Logger.start();
@@ -29,7 +30,9 @@ async function main (args: string[]): Promise<void> {
     'You cannot transpile a non-typed language to a typed language.'
   );
 
-  const tokens: IToken[] = tokenize(inputFileContents, inputGrammar);
+  const tokens: IToken[] = tokenize(inputFileContents);
+
+  console.log(tokens);
 
   Logger.finish();
 }
