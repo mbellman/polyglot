@@ -1,6 +1,5 @@
 import assert from '../assert';
-import { createTokenizer } from './createTokenizer';
-import { IGrammar } from '../grammar';
+import createTokenizer from './createTokenizer';
 import { IToken, Tokenizer, TokenType } from './types';
 
 const tokenizers: Tokenizer[] = [
@@ -15,7 +14,7 @@ const tokenizers: Tokenizer[] = [
   createTokenizer(TokenType.OPERATOR, /[-*+\/%&!^~]/),
   createTokenizer(TokenType.QUOTE, /["']/),
   createTokenizer(TokenType.SYMBOLS, /[$_|=`:;<>?,.]/),
-  createTokenizer(TokenType.WHITESPACE, /(\s|\t|\r|\n)/),
+  createTokenizer(TokenType.WHITESPACE, /[\s\t\r\n]/),
 ];
 
 export default function tokenize (input: string): IToken[] {

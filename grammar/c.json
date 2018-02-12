@@ -1,10 +1,5 @@
 {
   "typed": true,
-  "syntax": {
-    "block": {
-      "open": "{",
-      "close": "}"
-    },
-    "EOL": ";"
-  }
+  "pointers": true,
+  "rules": {}
 }

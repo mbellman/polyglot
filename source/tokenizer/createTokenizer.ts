@@ -1,6 +1,6 @@
 import { IToken, Tokenizer, TokenType } from './types';
 
-export function createTokenizer (tokenType: TokenType, pattern: RegExp): Tokenizer {
+export default function createTokenizer (tokenType: TokenType, pattern: RegExp): Tokenizer {
   return (input: string, offset: number): IToken => {
     let incomingChar: string = input[offset];
     let value: string;
